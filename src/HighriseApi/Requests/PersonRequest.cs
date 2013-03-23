@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using HighriseApi.ExtensionMethods;
 using HighriseApi.Interfaces;
 using RestSharp;
 using RestSharp.Serializers;
@@ -59,6 +60,8 @@ namespace HighriseApi.Requests
 
         public IEnumerable<Person> Search(string name, int? offset = null)
         {
+            if (String.IsNullOrEmpty(name)) return Get(offset);
+
             var url = offset.HasValue
                           ? String.Format("people/search.xml?term={0}&n={1}", name, offset.Value)
                           : String.Format("people/search.xml?term={0}", name);
@@ -73,7 +76,7 @@ namespace HighriseApi.Requests
 
             var url = offset.HasValue 
                 ? String.Format("people/search.xml?n={0}&{1}", offset.Value, string.Join("&", values))
-                : String.Format("people/search.xml?{0}", string.Join("&", values));
+                : String.Format("people/search.xml?{0}", values.ToSearchQueryString());
                 
 
             var response = _client.Execute<List<Person>>(new RestRequest(url, Method.GET));

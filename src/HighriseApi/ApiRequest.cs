@@ -10,10 +10,8 @@ namespace HighriseApi
         private readonly string _authenticationToken;
         private readonly IRestClient _client;
 
-        public PersonRequest PersonRequest
-        {
-            get { return new PersonRequest(_client); }
-        }
+        public CompanyRequest CompanyRequest { get { return new CompanyRequest(_client); } }
+        public PersonRequest PersonRequest { get { return new PersonRequest(_client); } }
         
         public ApiRequest(string username, string authenticationToken)
         {

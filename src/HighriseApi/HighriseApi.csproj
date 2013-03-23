@@ -45,18 +45,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiRequest.cs" />
+    <Compile Include="ExtensionMethods\DictionaryExtensions.cs" />
+    <Compile Include="Interfaces\ICompanyRequest.cs" />
     <Compile Include="Interfaces\IPersonRequest.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\Company.cs" />
     <Compile Include="Models\ContactData.cs" />
     <Compile Include="Models\EmailAddress.cs" />
     <Compile Include="Models\InstantMessenger.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\PhoneNumber.cs" />
     <Compile Include="Models\SubjectData.cs" />
+    <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\TwitterAccount.cs" />
     <Compile Include="Models\WebAddress.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\CompanyRequest.cs" />
     <Compile Include="Requests\PersonRequest.cs" />
   </ItemGroup>
   <ItemGroup>
