@@ -9,6 +9,7 @@ As of the last update, the following objects are represented in the API
 
 - People
 - Companies
+- Account
 
 The following objects are awaiting implementation:
 
@@ -23,7 +24,6 @@ The following objects are awaiting implementation:
 - Users
 - Groups
 - Memberships
-- Account
 - Parties
 - Recordings
 - Custom fields
