@@ -1,11 +1,13 @@
-﻿using HighriseApi.Models;
-using RestSharp.Serializers;
+﻿using RestSharp.Serializers;
 
 namespace HighriseApi
 {
     [SerializeAs(Name = "web-address")]
-    public class WebAddress : BaseModel
+    public class WebAddress
     {
+        [SerializeAs(Name = "id")]
+        public int? Id { get; set; }
+
         [SerializeAs(Name = "location")]
         public string Location { get; set; }
 

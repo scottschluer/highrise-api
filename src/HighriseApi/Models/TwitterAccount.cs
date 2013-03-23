@@ -1,11 +1,13 @@
-﻿using HighriseApi.Models;
-using RestSharp.Serializers;
+﻿using RestSharp.Serializers;
 
 namespace HighriseApi
 {
     [SerializeAs(Name = "twitter-account")]
-    public class TwitterAccount : BaseModel
+    public class TwitterAccount
     {
+        [SerializeAs(Name = "id")]
+        public int? Id { get; set; }
+
         [SerializeAs(Name = "location")]
         public string Location { get; set; }
 
