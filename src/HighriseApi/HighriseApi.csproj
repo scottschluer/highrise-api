@@ -47,11 +47,14 @@
     <Compile Include="ApiRequest.cs" />
     <Compile Include="ExtensionMethods\DictionaryExtensions.cs" />
     <Compile Include="Interfaces\IAccountRequest.cs" />
+    <Compile Include="Interfaces\ICaseRequest.cs" />
     <Compile Include="Interfaces\ICompanyRequest.cs" />
     <Compile Include="Interfaces\IPersonRequest.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\Case.cs" />
+    <Compile Include="Models\CaseStatus.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\ContactData.cs" />
     <Compile Include="Models\EmailAddress.cs" />
@@ -64,8 +67,10 @@
     <Compile Include="Models\WebAddress.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\AccountRequest.cs" />
+    <Compile Include="Requests\CaseRequest.cs" />
     <Compile Include="Requests\CompanyRequest.cs" />
     <Compile Include="Requests\PersonRequest.cs" />
+    <Compile Include="Serializers\XmlIgnoreSerializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

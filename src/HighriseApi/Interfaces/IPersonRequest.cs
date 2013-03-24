@@ -8,14 +8,14 @@ namespace HighriseApi.Interfaces
         /// <summary>
         /// Gets a collection of people that are visible to the authenticated user.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>An IEnumerable collection of <see cref="Person"/> objects</returns>
         IEnumerable<Person> Get(int? offset = null);
 
         /// <summary>
         /// Gets a single person by ID
         /// </summary>
         /// <param name="id">The ID of the person</param>
-        /// <returns></returns>
+        /// <returns>A <see cref="Person"/> object</returns>
         Person Get(int id);
         #endregion
 

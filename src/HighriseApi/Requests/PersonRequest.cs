@@ -74,10 +74,9 @@ namespace HighriseApi.Requests
         {
             if (values == null || values.Count == 0) return Get(offset);
 
-            var url = offset.HasValue 
-                ? String.Format("people/search.xml?n={0}&{1}", offset.Value, string.Join("&", values))
+            var url = offset.HasValue
+                ? String.Format("people/search.xml?n={0}&{1}", offset.Value, values.ToSearchQueryString())
                 : String.Format("people/search.xml?{0}", values.ToSearchQueryString());
-                
 
             var response = _client.Execute<List<Person>>(new RestRequest(url, Method.GET));
             return response.Data;

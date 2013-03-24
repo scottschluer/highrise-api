@@ -7,24 +7,24 @@ This project is under active development. If you wish to contribute, please foll
 
 As of the last update, the following objects are represented in the API
 
-- People
-- Companies
 - Account
+- Cases
+- Companies
+- People
 
 The following objects are awaiting implementation:
 
 - Categories
-- Cases
-- Deals
-- Notes
-- Emails
 - Comments
+- Custom fields
+- Deals
+- Deletions
+- Emails
+- Groups
+- Memberships
+- Notes
+- Parties
+- Recordings
 - Tags
 - Tasks
 - Users
-- Groups
-- Memberships
-- Parties
-- Recordings
-- Custom fields
-- Deletions
