@@ -14,6 +14,7 @@ namespace HighriseApi
         public CaseRequest CaseRequest { get { return new CaseRequest(_client); } }
         public CompanyRequest CompanyRequest { get { return new CompanyRequest(_client); } }
         public PersonRequest PersonRequest { get { return new PersonRequest(_client); } }
+        public UserRequest UserRequest { get { return new UserRequest(_client); } }
         
         public ApiRequest(string username, string authenticationToken)
         {
