@@ -9,14 +9,9 @@ using RestSharp;
 
 namespace HighriseApi.Requests
 {
-    public class CaseRequest : ICaseRequest
+    public class CaseRequest : RequestBase, ICaseRequest
     {
-        private readonly IRestClient _client;
-
-        public CaseRequest(IRestClient client)
-        {
-            _client = client;
-        }
+        public CaseRequest(IRestClient client) : base(client) { }
 
         public Case Get(int id)
         {

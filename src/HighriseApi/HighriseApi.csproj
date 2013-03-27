@@ -75,6 +75,7 @@
     <Compile Include="Requests\CaseRequest.cs" />
     <Compile Include="Requests\CompanyRequest.cs" />
     <Compile Include="Requests\PersonRequest.cs" />
+    <Compile Include="Requests\RequestBase.cs" />
     <Compile Include="Requests\TagRequest.cs" />
     <Compile Include="Requests\UserRequest.cs" />
     <Compile Include="Serializers\XmlIgnoreSerializer.cs" />

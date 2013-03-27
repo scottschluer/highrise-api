@@ -6,14 +6,9 @@ using RestSharp;
 
 namespace HighriseApi.Requests
 {
-    public class UserRequest : IUserRequest
+    public class UserRequest : RequestBase, IUserRequest
     {
-        private readonly IRestClient _client;
-
-        public UserRequest(IRestClient client)
-        {
-            _client = client;
-        }
+        public UserRequest(IRestClient client) : base(client) { }
 
         public User Me()
         {

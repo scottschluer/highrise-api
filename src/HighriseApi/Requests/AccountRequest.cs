@@ -4,14 +4,9 @@ using RestSharp;
 
 namespace HighriseApi.Requests
 {
-    public class AccountRequest : IAccountRequest
+    public class AccountRequest : RequestBase, IAccountRequest
     {
-        private readonly IRestClient _client;
-
-        public AccountRequest(IRestClient client)
-        {
-            _client = client;
-        }
+        public AccountRequest(IRestClient client) : base(client) { }
 
         public Account Get()
         {

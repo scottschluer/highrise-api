@@ -4,21 +4,15 @@ using System.Net;
 using HighriseApi.Interfaces;
 using HighriseApi.Models;
 using HighriseApi.Models.Enums;
-using HighriseApi.Serializers;
 using HighriseApi.Utilities;
 using RestSharp;
 using RestSharp.Serializers;
 
 namespace HighriseApi.Requests
 {
-    public class TagRequest : ITagRequest
+    public class TagRequest : RequestBase, ITagRequest
     {
-        private readonly IRestClient _client;
-
-        public TagRequest(IRestClient client)
-        {
-            _client = client;
-        }
+        public TagRequest(IRestClient client) : base(client) { }
 
         public IEnumerable<Tag> Get()
         {

@@ -8,14 +8,9 @@ using RestSharp.Serializers;
 
 namespace HighriseApi.Requests
 {
-    public class PersonRequest : IPersonRequest
+    public class PersonRequest : RequestBase, IPersonRequest
     {
-        private readonly IRestClient _client;
-
-        public PersonRequest(IRestClient client)
-        {
-            _client = client;
-        }
+        public PersonRequest(IRestClient client) : base(client) { }
 
         public IEnumerable<Person> Get(int? offset = null)
         {

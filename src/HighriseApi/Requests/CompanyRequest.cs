@@ -9,14 +9,9 @@ using RestSharp.Serializers;
 
 namespace HighriseApi.Requests
 {
-    public class CompanyRequest : ICompanyRequest
+    public class CompanyRequest : RequestBase, ICompanyRequest
     {
-        private readonly IRestClient _client;
-
-        public CompanyRequest(IRestClient client)
-        {
-            _client = client;
-        }
+        public CompanyRequest(IRestClient client) : base(client) { }
 
         public IEnumerable<Company> Get(int? offset = null)
         {
