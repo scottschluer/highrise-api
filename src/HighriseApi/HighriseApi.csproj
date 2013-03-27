@@ -50,16 +50,19 @@
     <Compile Include="Interfaces\ICaseRequest.cs" />
     <Compile Include="Interfaces\ICompanyRequest.cs" />
     <Compile Include="Interfaces\IPersonRequest.cs" />
+    <Compile Include="Interfaces\ITagRequest.cs" />
     <Compile Include="Interfaces\IUserRequest.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Case.cs" />
-    <Compile Include="Models\CaseStatus.cs" />
+    <Compile Include="Models\Enums\CaseStatus.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\ContactData.cs" />
     <Compile Include="Models\EmailAddress.cs" />
+    <Compile Include="Models\Enums\SubjectType.cs" />
     <Compile Include="Models\InstantMessenger.cs" />
+    <Compile Include="Models\Parties.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\PhoneNumber.cs" />
     <Compile Include="Models\SubjectData.cs" />
@@ -72,8 +75,10 @@
     <Compile Include="Requests\CaseRequest.cs" />
     <Compile Include="Requests\CompanyRequest.cs" />
     <Compile Include="Requests\PersonRequest.cs" />
+    <Compile Include="Requests\TagRequest.cs" />
     <Compile Include="Requests\UserRequest.cs" />
     <Compile Include="Serializers\XmlIgnoreSerializer.cs" />
+    <Compile Include="Utilities\PartyConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

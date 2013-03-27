@@ -1,4 +1,4 @@
-﻿namespace HighriseApi.Models
+﻿namespace HighriseApi.Models.Enums
 {
     public enum CaseStatus
     {

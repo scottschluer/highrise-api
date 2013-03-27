@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using HighriseApi.Models;
+using HighriseApi.Models.Enums;
 
 namespace HighriseApi.Interfaces
 {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using HighriseApi.Utilities;
 using RestSharp;
 using RestSharp.Deserializers;
 using RestSharp.Serializers;
@@ -40,41 +41,11 @@ namespace HighriseApi.Models
         public DateTime? ClosedAt { get; set; }
 
         [XmlIgnore]
-        public List<Person> People { get; private set; }
-
-        [XmlIgnore]
-        public List<Company> Companies { get; private set; }
+        public Parties Parties { get; private set; }
 
         protected internal void LoadParties(string xml)
         {
-            var doc = XDocument.Parse(xml);
-            XmlDeserializer s = new XmlDeserializer();
-
-            var kase = doc.Descendants("kase").Where(x => x.Element("id") != null && x.Element("id").Value == this.Id.ToString());
-
-            foreach (var party in kase.Descendants("party"))
-            {
-                var xElement = party.Element("type");
-                if (xElement == null) continue;
-
-                switch (xElement.Value.ToLower())
-                {
-                    case "person":
-                        var person = s.Deserialize<Person>(new RestResponse { Content = party.ToString() });
-
-                        if (person != null)
-                            this.People.Add(person);
-
-                        break;
-                    case "company":
-                        var company = s.Deserialize<Company>(new RestResponse { Content = party.ToString() });
-
-                        if (company != null)
-                            this.Companies.Add(company);
-
-                        break;
-                }
-            }
+            Parties = PartyConverter.Convert(XDocument.Parse(xml).Descendants("parties").FirstOrDefault());
         }
     }
 }

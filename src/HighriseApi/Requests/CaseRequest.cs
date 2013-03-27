@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using HighriseApi.Interfaces;
 using HighriseApi.Models;
+using HighriseApi.Models.Enums;
 using HighriseApi.Serializers;
 using RestSharp;
 
