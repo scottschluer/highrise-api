@@ -13,6 +13,7 @@ As of the last update, the following objects are represented in the API
 - People
 - Tags
 - Users
+- Tasks
 
 The following objects are awaiting implementation:
 
@@ -27,4 +28,3 @@ The following objects are awaiting implementation:
 - Notes
 - Parties
 - Recordings
-- Tasks
