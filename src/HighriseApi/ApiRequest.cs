@@ -16,6 +16,7 @@ namespace HighriseApi
         public PersonRequest PersonRequest { get { return new PersonRequest(_client); } }
         public TagRequest TagRequest { get { return new TagRequest(_client); } }
         public UserRequest UserRequest { get { return new UserRequest(_client); } }
+        public TaskRequest TaskRequest { get { return new TaskRequest(_client); } }
         
         public ApiRequest(string username, string authenticationToken)
         {
