@@ -22,6 +22,15 @@ namespace HighriseApi.Requests
             return response.Data;
         }
 
+        public IEnumerable<Person> Get(DateTime since)
+        {
+            string sinceString = since.ToString("yyyyMMddHHmmss");
+            var url = String.Format("people.xml?since={0}", sinceString);
+
+            var response = _client.Execute<List<Person>>(new RestRequest(url, Method.GET));
+            return response.Data;
+        }
+
         public Person Get(int id)
         {
             var response = _client.Execute<Person>(new RestRequest(String.Format("people/{0}.xml", id), Method.GET));
