@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace HighriseApi.Interfaces
 {
@@ -12,10 +13,11 @@ namespace HighriseApi.Interfaces
         IEnumerable<Person> Get(int? offset = null);
 
         /// <summary>
-        /// Gets a collection of people that have been created or updated since the time passed in.
+        /// Gets a collection of people that have been created or updated since the date passed in.
         /// </summary>
+        /// <param name="startDate">The date after which a user must be created in order to be returned</param>
         /// <returns>An IEnumerable collection of <see cref="Person"/> objects</returns>
-        IEnumerable<Person> Get(System.DateTime since);
+        IEnumerable<Person> Get(DateTime startDate);
 
         /// <summary>
         /// Gets a single person by ID
