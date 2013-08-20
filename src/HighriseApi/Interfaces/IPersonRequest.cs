@@ -12,6 +12,12 @@ namespace HighriseApi.Interfaces
         IEnumerable<Person> Get(int? offset = null);
 
         /// <summary>
+        /// Gets a collection of people that have been created or updated since the time passed in.
+        /// </summary>
+        /// <returns>An IEnumerable collection of <see cref="Person"/> objects</returns>
+        IEnumerable<Person> Get(System.DateTime since);
+
+        /// <summary>
         /// Gets a single person by ID
         /// </summary>
         /// <param name="id">The ID of the person</param>
