@@ -13,6 +13,21 @@ namespace HighriseApi.Requests
     {
         public DealRequest(IRestClient client) : base(client) { }
 
+        public IEnumerable<Deal> Get(int? offset = null)
+        {
+            var url = offset.HasValue
+                          ? String.Format("deals.xml?n={0}", offset.Value)
+                          : "deals.xml";
+
+            var response = _client.Execute<List<Deal>>(new RestRequest(url, Method.GET));
+            var deals = response.Data;
+
+            foreach (var deal in deals)
+                deal.LoadParties(response.Content);
+
+            return deals;
+        }
+
         public Deal Get(int id)
         {
             var response = _client.Execute<Deal>(new RestRequest(String.Format("deals/{0}.xml", id), Method.GET));
@@ -36,6 +51,14 @@ namespace HighriseApi.Requests
             return deals;
         }
 
+        public IEnumerable<Deal> Get(DateTime startDate)
+        {
+            var url = String.Format("deals.xml?since={0}", startDate.ToString("yyyyMMddHHmmss"));
+
+            var response = _client.Execute<List<Deal>>(new RestRequest(url, Method.GET));
+            return response.Data;
+        }
+
         public Deal Create(Deal deal)
         {
             var request = new RestRequest("deals.xml", Method.POST) { XmlSerializer = new XmlIgnoreSerializer() };
@@ -47,8 +70,7 @@ namespace HighriseApi.Requests
 
         public bool Update(Deal deal)
         {
-            var request = new RestRequest("deals/{id}.xml", Method.PUT) { XmlSerializer = new XmlIgnoreSerializer() };
-            request.AddParameter("id", deal.Id, ParameterType.UrlSegment);
+            var request = new RestRequest(String.Format("deals/{0}.xml", deal.Id), Method.PUT) { XmlSerializer = new XmlIgnoreSerializer() };
             request.AddBody(deal);
 
             var response = _client.Execute<Deal>(request);
@@ -61,11 +83,13 @@ namespace HighriseApi.Requests
             return response.StatusCode == HttpStatusCode.OK;
         }
         
-
-        // TODO: Implement
         public bool UpdateStatus(int id, DealStatus dealStatus)
         {
-            throw new NotImplementedException();
+            var request = new RestRequest(String.Format("deals/{0}/status.xml", id), Method.PUT) { XmlSerializer = new XmlIgnoreSerializer() };
+            request.AddParameter("text/xml", String.Format("<status><name>{0}</name></status>", dealStatus.ToString().ToLower()), ParameterType.RequestBody);
+
+            var response = _client.Execute(request);
+            return response.StatusCode == HttpStatusCode.OK;
         }
     }
 }

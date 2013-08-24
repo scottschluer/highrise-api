@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using HighriseApi.Models;
 using HighriseApi.Models.Enums;
 
@@ -6,6 +7,12 @@ namespace HighriseApi.Interfaces
 {
     interface IDealRequest
     {
+        /// <summary>
+        /// Gets a list of deals that are visible to the authenticated user
+        /// </summary>
+        /// <returns>An IEnumerable collection of <see cref="Deal"/> objects</returns>.
+        IEnumerable<Deal> Get(int? offset = null);
+
         /// <summary>
         /// Gets a deal by deal ID.
         /// </summary>
@@ -18,6 +25,13 @@ namespace HighriseApi.Interfaces
         /// <param name="dealStatus">A <see cref="DealStatus"/> enum value</param>
         /// <returns>An IEnumerable collection of <see cref="Deal"/> objects</returns>.
         IEnumerable<Deal> Get(DealStatus dealStatus);
+
+        /// <summary>
+        /// Gets a collection of deals that have been created or updated since the date passed in.
+        /// </summary>
+        /// <param name="startDate">The date after which a deal must be created in order to be returned</param>
+        /// <returns>An IEnumerable collection of <see cref="Deal"/> objects</returns>
+        IEnumerable<Deal> Get(DateTime startDate);
 
         /// <summary>
         /// Creates a new deal
