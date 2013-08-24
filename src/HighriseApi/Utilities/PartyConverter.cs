@@ -24,11 +24,11 @@ namespace HighriseApi.Utilities
             foreach (var party in xml.Descendants("party"))
             {
                 string partyType = String.Empty;
-                
+
                 var element = party.Element("type");
                 if (element != null)
                     partyType = element.Value;
-                
+
                 if (String.IsNullOrEmpty(partyType))
                 {
                     var attribute = party.Attribute("type");
@@ -57,6 +57,38 @@ namespace HighriseApi.Utilities
             }
 
             return parties;
+        }
+
+        public static object ConvertSingle(XElement xml)
+        {
+            object returnObject = null;
+
+            if (xml != null)
+            {
+                string partyType = String.Empty;
+                var s = new XmlDeserializer();
+
+                var element = xml.Element("type");
+                if (element != null)
+                    partyType = element.Value;
+
+                if (String.IsNullOrEmpty(partyType))
+                {
+                    var attribute = xml.Attribute("type");
+                    if (attribute != null) partyType = attribute.Value;
+                }
+
+                switch (partyType.ToLower())
+                {
+                    case "person":
+                        returnObject = s.Deserialize<Person>(new RestResponse { Content = xml.ToString() });
+                        break;
+                    case "company":
+                        returnObject = s.Deserialize<Company>(new RestResponse { Content = xml.ToString() });
+                        break;
+                }
+            }
+            return returnObject;
         }
     }
 }
