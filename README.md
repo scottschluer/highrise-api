@@ -10,6 +10,7 @@ As of the last update, the following objects are represented in the API
 - Account
 - Cases
 - Companies
+- Deals (Partial)
 - People
 - Tags
 - Users
@@ -20,7 +21,6 @@ The following objects are awaiting implementation:
 - Categories
 - Comments
 - Custom fields
-- Deals
 - Deletions
 - Emails
 - Groups
