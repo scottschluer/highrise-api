@@ -10,7 +10,7 @@ As of the last update, the following objects are represented in the API
 - Account
 - Cases
 - Companies
-- Deals (Partial)
+- Deals
 - People
 - Tags
 - Users
