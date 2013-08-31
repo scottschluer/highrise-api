@@ -47,8 +47,12 @@
   <ItemGroup>
     <Compile Include="ApiRequest.cs" />
     <Compile Include="ExtensionMethods\DictionaryExtensions.cs" />
+    <Compile Include="Interfaces\ICommentRequest.cs" />
+    <Compile Include="Interfaces\ISubjectFieldRequest.cs" />
+    <Compile Include="Interfaces\ITaskCategoryRequest.cs" />
     <Compile Include="Interfaces\IAccountRequest.cs" />
     <Compile Include="Interfaces\ICaseRequest.cs" />
+    <Compile Include="Interfaces\IDealCategoryRequest.cs" />
     <Compile Include="Interfaces\ICompanyRequest.cs" />
     <Compile Include="Interfaces\IDealRequest.cs" />
     <Compile Include="Interfaces\IPersonRequest.cs" />
@@ -59,6 +63,11 @@
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Case.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Enums\CommentType.cs" />
+    <Compile Include="Models\SubjectField.cs" />
+    <Compile Include="Models\TaskCategory.cs" />
+    <Compile Include="Models\DealCategory.cs" />
     <Compile Include="Models\Deal.cs" />
     <Compile Include="Models\Enums\CaseStatus.cs" />
     <Compile Include="Models\Company.cs" />
@@ -80,6 +89,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\AccountRequest.cs" />
     <Compile Include="Requests\CaseRequest.cs" />
+    <Compile Include="Requests\CommentRequest.cs" />
+    <Compile Include="Requests\SubjectFieldRequest.cs" />
+    <Compile Include="Requests\TaskCategoryRequest.cs" />
+    <Compile Include="Requests\DealCategoryRequest.cs" />
     <Compile Include="Requests\CompanyRequest.cs" />
     <Compile Include="Requests\DealRequest.cs" />
     <Compile Include="Requests\PersonRequest.cs" />

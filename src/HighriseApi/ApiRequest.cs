@@ -18,6 +18,10 @@ namespace HighriseApi
         public TagRequest TagRequest { get { return new TagRequest(_client); } }
         public UserRequest UserRequest { get { return new UserRequest(_client); } }
         public TaskRequest TaskRequest { get { return new TaskRequest(_client); } }
+        public DealCategoryRequest DealCategoryRequest { get { return new DealCategoryRequest(_client); } }
+        public TaskCategoryRequest TaskCategoryRequest { get { return new TaskCategoryRequest(_client); } }
+        public CommentRequest CommentRequest { get { return new CommentRequest(_client); } }
+        public SubjectFieldRequest SubjectFieldRequest { get { return new SubjectFieldRequest(_client); } }
         
         public ApiRequest(string username, string authenticationToken)
         {
