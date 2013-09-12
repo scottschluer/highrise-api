@@ -13,9 +13,9 @@ namespace HighriseApi.Requests
     {
         public CaseRequest(IRestClient client) : base(client) { }
 
-        public Case Get(int id)
+        public Kase Get(int id)
         {
-            var response = _client.Execute<Case>(new RestRequest(String.Format("kases/{0}.xml", id), Method.GET));
+            var response = _client.Execute<Kase>(new RestRequest(String.Format("kases/{0}.xml", id), Method.GET));
             var kase = response.Data;
 
             if (kase == null) return null;
@@ -24,11 +24,10 @@ namespace HighriseApi.Requests
             return kase;
         }
 
-        //TODO: Debug this method. response.Data is always null.
-        public IEnumerable<Case> Get(CaseStatus caseStatus)
+        public IEnumerable<Kase> Get(CaseStatus caseStatus)
         {
             var url = caseStatus == CaseStatus.Open ? "kases/open.xml" : "kases/closed.xml";
-            var response = _client.Execute<List<Case>>(new RestRequest(url, Method.GET));
+            var response = _client.Execute<List<Kase>>(new RestRequest(url, Method.GET));
             var kases = response.Data;
 
             foreach (var kase in kases)
@@ -37,28 +36,28 @@ namespace HighriseApi.Requests
             return kases;
         }
 
-        public Case Create(Case kase)
+        public Kase Create(Kase kase)
         {
             var request = new RestRequest("kases.xml", Method.POST) { XmlSerializer = new XmlIgnoreSerializer() };
             request.AddBody(kase);
 
-            var response = _client.Execute<Case>(request);
+            var response = _client.Execute<Kase>(request);
             return response.Data;
         }
 
-        public bool Update(Case kase)
+        public bool Update(Kase kase)
         {
             var request = new RestRequest("kases/{id}.xml", Method.PUT) { XmlSerializer = new XmlIgnoreSerializer() };
             request.AddParameter("id", kase.Id, ParameterType.UrlSegment);
             request.AddBody(kase);
 
-            var response = _client.Execute<Case>(request);
+            var response = _client.Execute<Kase>(request);
             return response.StatusCode == HttpStatusCode.OK;
         }
 
         public bool Delete(int id)
         {
-            var response = _client.Execute<Case>(new RestRequest(String.Format("kases/{0}.xml", id), Method.DELETE));
+            var response = _client.Execute<Kase>(new RestRequest(String.Format("kases/{0}.xml", id), Method.DELETE));
             return response.StatusCode == HttpStatusCode.OK;
         }
     }
