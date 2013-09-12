@@ -44,13 +44,13 @@ namespace HighriseApi.Requests
             request.AddParameter("id", comment.Id, ParameterType.UrlSegment);
             request.AddBody(comment);
 
-            var response = _client.Execute<Case>(request);
+            var response = _client.Execute<Kase>(request);
             return response.StatusCode == HttpStatusCode.OK;
         }
 
         public bool Delete(int id)
         {
-            var response = _client.Execute<Case>(new RestRequest(String.Format("comments/{0}.xml", id), Method.DELETE));
+            var response = _client.Execute<Kase>(new RestRequest(String.Format("comments/{0}.xml", id), Method.DELETE));
             return response.StatusCode == HttpStatusCode.OK;
         }
     }

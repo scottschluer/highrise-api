@@ -62,7 +62,7 @@
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\BaseModel.cs" />
-    <Compile Include="Models\Case.cs" />
+    <Compile Include="Models\Kase.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Enums\CommentType.cs" />
     <Compile Include="Models\SubjectField.cs" />

@@ -11,7 +11,7 @@ using RestSharp.Serializers;
 namespace HighriseApi.Models
 {
     [SerializeAs(Name = "kase")]
-    public class Case : BaseModel
+    public class Kase : BaseModel
     {
         [SerializeAs(Name = "author-id")]
         public int AuthorId { get; set; }

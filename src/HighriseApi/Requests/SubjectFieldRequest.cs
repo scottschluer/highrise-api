@@ -35,13 +35,13 @@ namespace HighriseApi.Requests
             request.AddParameter("id", subjectField.Id, ParameterType.UrlSegment);
             request.AddBody(subjectField);
 
-            var response = _client.Execute<Case>(request);
+            var response = _client.Execute<Kase>(request);
             return response.StatusCode == HttpStatusCode.OK;
         }
 
         public bool Delete(int id)
         {
-            var response = _client.Execute<Case>(new RestRequest(String.Format("subject_fields/{0}.xml", id), Method.DELETE));
+            var response = _client.Execute<Kase>(new RestRequest(String.Format("subject_fields/{0}.xml", id), Method.DELETE));
             return response.StatusCode == HttpStatusCode.OK;
         }
     }
