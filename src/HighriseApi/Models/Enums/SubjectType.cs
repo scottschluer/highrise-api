@@ -2,7 +2,7 @@
 {
     public enum SubjectType
     {
-        Cases,
+        Kases,
         Companies,
         Deals,
         People
