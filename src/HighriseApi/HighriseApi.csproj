@@ -48,6 +48,7 @@
     <Compile Include="ApiRequest.cs" />
     <Compile Include="ExtensionMethods\DictionaryExtensions.cs" />
     <Compile Include="Interfaces\ICommentRequest.cs" />
+    <Compile Include="Interfaces\IRecordingRequest.cs" />
     <Compile Include="Interfaces\ISubjectFieldRequest.cs" />
     <Compile Include="Interfaces\ITaskCategoryRequest.cs" />
     <Compile Include="Interfaces\IAccountRequest.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Models\Kase.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Enums\CommentType.cs" />
+    <Compile Include="Models\Recording.cs" />
     <Compile Include="Models\SubjectField.cs" />
     <Compile Include="Models\TaskCategory.cs" />
     <Compile Include="Models\DealCategory.cs" />
@@ -91,6 +93,7 @@
     <Compile Include="Requests\AccountRequest.cs" />
     <Compile Include="Requests\CaseRequest.cs" />
     <Compile Include="Requests\CommentRequest.cs" />
+    <Compile Include="Requests\RecordingRequest.cs" />
     <Compile Include="Requests\SubjectFieldRequest.cs" />
     <Compile Include="Requests\TaskCategoryRequest.cs" />
     <Compile Include="Requests\DealCategoryRequest.cs" />
