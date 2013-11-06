@@ -24,6 +24,18 @@ namespace HighriseApi.Models
         [SerializeAs(Name = "due-at")]
         public DateTime? DueAt { get; set; }
 
+        [SerializeAs(Name = "alert-at")]
+        public DateTime? AlertAt { get; set; }
+
+        [SerializeAs(Name = "done-at")]
+        public DateTime? DoneAt { get; set; }
+
+        [SerializeAs(Name = "created-at")]
+        public DateTime CreatedAt { get; set; }
+
+        [SerializeAs(Name = "updated-at")]
+        public DateTime UpdatedAt { get; set; }
+
         /// <summary>
         /// Default value is 'Party'
         /// </summary>
@@ -32,6 +44,9 @@ namespace HighriseApi.Models
 
         [SerializeAs(Name = "subject-id")]
         public int? SubjectId { get; set; }
+
+        [SerializeAs(Name = "subject-name")]
+        public string SubjectName { get; set; }
 
         [SerializeAs(Name = "recording-id")]
         public int? RecordingId { get; set; }

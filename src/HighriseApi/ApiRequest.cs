@@ -22,6 +22,7 @@ namespace HighriseApi
         public TaskCategoryRequest TaskCategoryRequest { get { return new TaskCategoryRequest(_client); } }
         public CommentRequest CommentRequest { get { return new CommentRequest(_client); } }
         public SubjectFieldRequest SubjectFieldRequest { get { return new SubjectFieldRequest(_client); } }
+        public RecordingRequest RecordingRequest { get { return new RecordingRequest(_client); } }
         
         public ApiRequest(string username, string authenticationToken)
         {
