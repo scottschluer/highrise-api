@@ -13,6 +13,7 @@ namespace HighriseApi.Models.Enums
         this_week,
         next_week,
         later,
-        specific
+        specific,
+		overdue
     }
 }
