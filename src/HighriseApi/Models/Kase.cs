@@ -14,7 +14,7 @@ namespace HighriseApi.Models
     public class Kase : BaseModel
     {
         [SerializeAs(Name = "author-id")]
-        public int AuthorId { get; set; }
+        public int? AuthorId { get; set; }
 
         [SerializeAs(Name = "group-id")]
         public int? GroupId { get; set; }
