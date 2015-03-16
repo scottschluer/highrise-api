@@ -24,6 +24,8 @@ namespace HighriseApi.Requests
 
         public IEnumerable<Person> Get(DateTime startDate)
         {
+            
+
             var url = String.Format("people.xml?since={0}", startDate.ToString("yyyyMMddHHmmss"));
 
             var response = _client.Execute<List<Person>>(new RestRequest(url, Method.GET));

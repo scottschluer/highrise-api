@@ -1,4 +1,5 @@
 ﻿using RestSharp;
+using System.Net;
 
 namespace HighriseApi.Requests
 {
@@ -6,10 +7,16 @@ namespace HighriseApi.Requests
     {
         protected readonly IRestClient _client;
 
-        public RequestBase() {}
+        public RequestBase() 
+        {
+            ServicePointManager.ServerCertificateValidationCallback +=
+                (sender, certificate, chain, sslPolicyErrors) => true;
+        }
 
         public RequestBase(IRestClient client)
         {
+            ServicePointManager.ServerCertificateValidationCallback +=
+                (sender, certificate, chain, sslPolicyErrors) => true;
             _client = client;
         }
     }

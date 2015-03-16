@@ -11,6 +11,7 @@ namespace HighriseApi
         private readonly IRestClient _client;
 
         public AccountRequest AccountRequest { get { return new AccountRequest(_client); } }
+        public EmailRequest EmailRequest { get { return new EmailRequest(_client); } }
         public CaseRequest CaseRequest { get { return new CaseRequest(_client); } }
         public DealRequest DealRequest { get { return new DealRequest(_client); } }
         public CompanyRequest CompanyRequest { get { return new CompanyRequest(_client); } }
@@ -28,6 +29,7 @@ namespace HighriseApi
         {
             _username = username;
             _authenticationToken = authenticationToken;
+
             _client = new RestClient
                 {
                     BaseUrl = String.Format("https://{0}.highrisehq.com", _username),
