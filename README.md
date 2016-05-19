@@ -14,6 +14,7 @@ As of the last update, the following objects are represented in the API
 - Companies
 - Custom fields
 - Deals
+- Notes
 - People
 - Recordings
 - Tags
@@ -26,5 +27,4 @@ The following objects are awaiting implementation:
 - Emails
 - Groups
 - Memberships
-- Notes
 - Parties
