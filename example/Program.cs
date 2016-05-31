@@ -57,10 +57,11 @@ namespace HighriseApiConsole
                 Console.WriteLine(del.Id);
             }
 
+            //==Notes API test Start==
             //Create note for company
             Console.WriteLine();
             Console.WriteLine("==Add Note for company==");
-            var note = new Note { Body = "Note for Company for testing company throgh console app" };
+            var note = new Note { Body = "Note for Company for testing company through console app" };
             var newNote = api.NoteRequest.Create(SubjectType.Companies, 260722648, note);
             Console.WriteLine(newNote.Body);
             Console.WriteLine(newNote.Id);
@@ -70,7 +71,7 @@ namespace HighriseApiConsole
             //Create note for person
             Console.WriteLine();
             Console.WriteLine("==Add Note for person==");
-            note = new Note { Body = "Note for Gem person throgh console app" };
+            note = new Note { Body = "Note for Gem person through console app" };
             newNote = api.NoteRequest.Create(SubjectType.People, 257141812, note);
             Console.WriteLine(newNote.Body);
             Console.WriteLine(newNote.Id);
@@ -80,7 +81,7 @@ namespace HighriseApiConsole
             //Create note for Case
             Console.WriteLine();
             Console.WriteLine("==Add Note for Case==");
-            note = new Note { Body = "Note for RelatedToTestingUsers case throgh console app" };
+            note = new Note { Body = "Note for RelatedToTestingUsers case through console app" };
             newNote = api.NoteRequest.Create(SubjectType.Kases, 1439491, note);
             Console.WriteLine(newNote.Body);
             Console.WriteLine(newNote.Id);
@@ -90,7 +91,7 @@ namespace HighriseApiConsole
             //Create note for deal
             Console.WriteLine();
             Console.WriteLine("==Add Note for deal==");
-            note = new Note { Body = "Note for Imaginary deal  throgh console app" };
+            note = new Note { Body = "Note for Imaginary deal  through console app" };
             newNote = api.NoteRequest.Create(SubjectType.Deals, 4850630, note);
             Console.WriteLine(newNote.Body);
             Console.WriteLine(newNote.Id);
@@ -169,6 +170,132 @@ namespace HighriseApiConsole
             bool flag = api.NoteRequest.Update(updateTo);
 
             Console.WriteLine(flag ? "success" : "false");
+            //==Notes API test End==
+
+            //==Email API test Start==
+            //Create Email for company
+            Console.WriteLine();
+            Console.WriteLine("==Add Email for company==");
+            var email = new Email { Title= "subject of Company email through console app", Body = "Email Body for Company for testing company through console app" };
+            var newEmail = api.EmailRequest.Create(SubjectType.Companies, 260722648, email);
+            Console.WriteLine(newEmail.Title);
+            Console.WriteLine(newEmail.Body);
+            Console.WriteLine(newEmail.Id);
+
+            var compEmailToDelete = newEmail.Id;
+
+            //Create Email for person
+            Console.WriteLine();
+            Console.WriteLine("==Add Email for person==");
+            email = new Email { Title = "subject of person email through console app",  Body = "Email Body for Gem person through console app" };
+            newEmail = api.EmailRequest.Create(SubjectType.People, 257141812, email);
+            Console.WriteLine(newEmail.Title);
+            Console.WriteLine(newEmail.Body);
+            Console.WriteLine(newEmail.Id);
+
+            var persEmailToGet = newEmail.Id;
+
+            //Create Email for Case
+            Console.WriteLine();
+            Console.WriteLine("==Add Email for Case==");
+            email = new Email { Title = "subject of Case email through console app", Body = "Email Body for RelatedToTestingUsers case through console app" };
+            newEmail = api.EmailRequest.Create(SubjectType.Kases, 1439491, email);
+            Console.WriteLine(newEmail.Title);
+            Console.WriteLine(newEmail.Body);
+            Console.WriteLine(newEmail.Id);
+
+            var caseEmailToGetComments = newEmail.Id;
+
+            //Create Email for deal
+            Console.WriteLine();
+            Console.WriteLine("==Add Email for deal==");
+            email = new Email { Title = "subject of deal email through console app", Body = "Email Body for Imaginary deal  through console app" };
+            newEmail = api.EmailRequest.Create(SubjectType.Deals, 4850630, email);
+            Console.WriteLine(newEmail.Title);
+            Console.WriteLine(newEmail.Body);
+            Console.WriteLine(newEmail.Id);
+
+            var dealEmailToUpdate = newEmail.Id;
+
+            //Get all Emails for company
+            Console.WriteLine();
+            Console.WriteLine("==Get Emails for Company for testing==");
+            var emailsCompany = api.EmailRequest.Get(SubjectType.Companies, 260722648);
+            foreach (var nc in emailsCompany)
+            {
+                Console.WriteLine(newEmail.Title);
+                Console.WriteLine(nc.Body);
+                Console.WriteLine(nc.Id);
+            }
+
+            //Get all emails for person
+            Console.WriteLine();
+            Console.WriteLine("==Get Emails for Gem person==");
+            var emailsPers = api.EmailRequest.Get(SubjectType.People, 257141812);
+            foreach (var np in emailsPers)
+            {
+                Console.WriteLine(newEmail.Title);
+                Console.WriteLine(np.Body);
+                Console.WriteLine(np.Id);
+            }
+
+            //Get all emails for Case
+            Console.WriteLine();
+            Console.WriteLine("==Get emails for RelatedToTestingUsers case==");
+            var emailsCase = api.EmailRequest.Get(SubjectType.Kases, 1439491);
+            foreach (var nc in emailsCase)
+            {
+                Console.WriteLine(newEmail.Title);
+                Console.WriteLine(nc.Body);
+                Console.WriteLine(nc.Id);
+            }
+
+            //Get all emails for Case
+            Console.WriteLine();
+            Console.WriteLine("==Get Emails for Imaginary deal==");
+            var emailsDeal = api.EmailRequest.Get(SubjectType.Deals, 4850630);
+            foreach (var nd in emailsDeal)
+            {
+                Console.WriteLine(newEmail.Title);
+                Console.WriteLine(nd.Body);
+                Console.WriteLine(nd.Id);
+            }
+
+
+            //Delete last added email under company
+            Console.WriteLine();
+            Console.WriteLine("==Delete last email added to company==");
+            result = api.EmailRequest.Delete(compEmailToDelete);
+            Console.WriteLine(result ? "success" : "false");
+
+            //Get last email added to person
+            var persEmail = api.EmailRequest.Get(persEmailToGet);
+            Console.WriteLine();
+            Console.WriteLine("==Get last Email added to person==");
+            Console.WriteLine(newEmail.Title);
+            Console.WriteLine(persEmail.Body);
+            Console.WriteLine(persEmail.Id);
+
+            //Get comments of last case Email
+            Console.WriteLine();
+            Console.WriteLine("==Get comments of last case Email==");
+            comments = api.EmailRequest.GetComments(caseEmailToGetComments);
+            foreach (var cmt in comments)
+            {
+                Console.WriteLine(cmt.Body);
+                Console.WriteLine(cmt.Id);
+            }
+
+
+            //Update Email of last deal Email 
+            Console.WriteLine();
+            Console.WriteLine("==Update Email of last deal==");
+            var updateToEmail = new Email { Id = dealEmailToUpdate, Title = "Updated subject of deal email through console app",  Body = "Updated Email body through console App" };
+            flag = api.EmailRequest.Update(updateToEmail);
+
+            Console.WriteLine(flag ? "success" : "false");
+            //==Email API test End==
+
 
             Console.WriteLine();
             Console.WriteLine("==person with id 257141812==");

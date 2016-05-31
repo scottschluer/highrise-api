@@ -24,6 +24,7 @@ namespace HighriseApi
         public SubjectFieldRequest SubjectFieldRequest { get { return new SubjectFieldRequest(_client); } }
         public RecordingRequest RecordingRequest { get { return new RecordingRequest(_client); } }
         public NoteRequest NoteRequest { get { return new NoteRequest(_client); } }
+        public EmailRequest EmailRequest { get { return new EmailRequest(_client); } }
         public ApiRequest(string username, string authenticationToken)
         {
             _username = username;
