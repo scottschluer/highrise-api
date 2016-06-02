@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using HighriseApi;
 using HighriseApi.Models.Enums;
 
@@ -16,7 +17,7 @@ namespace HighriseApiConsole
             const string authenticationToken = "[TOKEN]";
 
             var api = new ApiRequest(username, authenticationToken);
-            
+
             // Get all people your user has access to
             var people = api.PersonRequest.Get();
 
@@ -176,7 +177,7 @@ namespace HighriseApiConsole
             //Create Email for company
             Console.WriteLine();
             Console.WriteLine("==Add Email for company==");
-            var email = new Email { Title= "subject of Company email through console app", Body = "Email Body for Company for testing company through console app" };
+            var email = new Email { Title = "subject of Company email through console app", Body = "Email Body for Company for testing company through console app" };
             var newEmail = api.EmailRequest.Create(SubjectType.Companies, 260722648, email);
             Console.WriteLine(newEmail.Title);
             Console.WriteLine(newEmail.Body);
@@ -187,7 +188,7 @@ namespace HighriseApiConsole
             //Create Email for person
             Console.WriteLine();
             Console.WriteLine("==Add Email for person==");
-            email = new Email { Title = "subject of person email through console app",  Body = "Email Body for Gem person through console app" };
+            email = new Email { Title = "subject of person email through console app", Body = "Email Body for Gem person through console app" };
             newEmail = api.EmailRequest.Create(SubjectType.People, 257141812, email);
             Console.WriteLine(newEmail.Title);
             Console.WriteLine(newEmail.Body);
@@ -290,11 +291,50 @@ namespace HighriseApiConsole
             //Update Email of last deal Email 
             Console.WriteLine();
             Console.WriteLine("==Update Email of last deal==");
-            var updateToEmail = new Email { Id = dealEmailToUpdate, Title = "Updated subject of deal email through console app",  Body = "Updated Email body through console App" };
+            var updateToEmail = new Email { Id = dealEmailToUpdate, Title = "Updated subject of deal email through console app", Body = "Updated Email body through console App" };
             flag = api.EmailRequest.Update(updateToEmail);
 
             Console.WriteLine(flag ? "success" : "false");
             //==Email API test End==
+
+
+            //==Group API test Start==
+            //Create group
+            Console.WriteLine();
+            Console.WriteLine("==Add group==");
+            var group = new Group { Name = "New group through console app" };
+
+            Console.WriteLine();
+            Console.WriteLine("==Add another group==");
+            group = new Group { Name = "Another New group through console app" };
+
+            Console.WriteLine();
+            Console.WriteLine("==Get all groups==");
+            var groups = api.GroupRequest.Get();
+            List<int> ids = new List<int>();
+            foreach (var grp  in groups)
+            {
+                
+                Console.WriteLine(grp.Name);
+                Console.WriteLine(grp.Id);
+                ids.Add(grp.Id);
+            }
+
+            //Update Group added second 
+            Console.WriteLine();
+            Console.WriteLine("==Update group second added==");
+            var updateToGroupl = new Group { Id = ids[1], Name = "Updated Group through console app"};
+            flag = api.GroupRequest.Update(updateToGroupl);
+
+            Console.WriteLine(flag ? "success" : "false");
+
+            //Delete  Group added first 
+            Console.WriteLine();
+            Console.WriteLine("==Delete first group added==");
+            result = api.GroupRequest.Delete(ids[0]);
+            Console.WriteLine(result ? "success" : "false");
+
+            //==Group API test End==
 
 
             Console.WriteLine();
