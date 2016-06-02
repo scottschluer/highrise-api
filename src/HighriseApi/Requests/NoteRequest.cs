@@ -74,7 +74,7 @@ namespace HighriseApi.Requests
             var request = new RestRequest(String.Format("notes/{0}.xml", note.Id), Method.PUT) { XmlSerializer = new XmlIgnoreSerializer() };
             request.AddBody(note);
 
-            var response = _client.Execute<Deal>(request);
+            var response = _client.Execute<Note>(request);
             return response.StatusCode == HttpStatusCode.OK;
         }
     }

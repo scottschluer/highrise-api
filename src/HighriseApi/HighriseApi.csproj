@@ -48,6 +48,8 @@
     <Compile Include="ApiRequest.cs" />
     <Compile Include="ExtensionMethods\DictionaryExtensions.cs" />
     <Compile Include="Interfaces\ICommentRequest.cs" />
+    <Compile Include="Interfaces\IGroupRequest.cs" />
+    <Compile Include="Interfaces\IEmailRequest.cs" />
     <Compile Include="Interfaces\INoteRequest.cs" />
     <Compile Include="Interfaces\IRecordingRequest.cs" />
     <Compile Include="Interfaces\ISubjectFieldRequest.cs" />
@@ -65,10 +67,12 @@
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Attachment.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\Group.cs" />
     <Compile Include="Models\Enums\TaskStatus.cs" />
     <Compile Include="Models\Kase.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Enums\CommentType.cs" />
+    <Compile Include="Models\Email.cs" />
     <Compile Include="Models\Note.cs" />
     <Compile Include="Models\Recording.cs" />
     <Compile Include="Models\SubjectField.cs" />
@@ -96,6 +100,8 @@
     <Compile Include="Requests\AccountRequest.cs" />
     <Compile Include="Requests\CaseRequest.cs" />
     <Compile Include="Requests\CommentRequest.cs" />
+    <Compile Include="Requests\GroupRequest.cs" />
+    <Compile Include="Requests\EmailRequest.cs" />
     <Compile Include="Requests\NoteRequest.cs" />
     <Compile Include="Requests\RecordingRequest.cs" />
     <Compile Include="Requests\SubjectFieldRequest.cs" />
