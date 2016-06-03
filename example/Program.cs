@@ -336,6 +336,47 @@ namespace HighriseApiConsole
 
             //==Group API test End==
 
+            //==Membership API test End==
+
+
+            Console.WriteLine();
+            Console.WriteLine("==Get all users==");
+            var users = api.UserRequest.Get();
+            List<int> userIds = new List<int>();
+            foreach (var usr in users)
+            {
+
+                Console.WriteLine(usr.Name);
+                Console.WriteLine(usr.Id);
+                userIds.Add(usr.Id);
+            }
+
+            //Create Membership
+            Console.WriteLine();
+            Console.WriteLine("==Add Membership ==");
+            var membership = new Membership { UserId = userIds[0], GroupId = ids[1] };
+
+
+            Console.WriteLine();
+            Console.WriteLine("==Get all memberships==");
+            var memberships = api.MembershipRequest.Get();
+            List<int> membershipids = new List<int>();
+            foreach (var mbsh in memberships)
+            {
+
+                Console.WriteLine(mbsh.UserId);
+                Console.WriteLine(mbsh.GroupId);
+                membershipids.Add(mbsh.Id);
+            }
+
+
+            //Delete  Membership added first 
+            Console.WriteLine();
+            Console.WriteLine("==Delete first membership added==");
+            result = api.MembershipRequest.Delete(membershipids[0]);
+            Console.WriteLine(result ? "success" : "false");
+            //==Membership API test End==
+
 
             Console.WriteLine();
             Console.WriteLine("==person with id 257141812==");

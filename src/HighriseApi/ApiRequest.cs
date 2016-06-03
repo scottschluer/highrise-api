@@ -26,6 +26,7 @@ namespace HighriseApi
         public NoteRequest NoteRequest { get { return new NoteRequest(_client); } }
         public EmailRequest EmailRequest { get { return new EmailRequest(_client); } }
         public GroupRequest GroupRequest { get { return new GroupRequest(_client); } }
+        public MembershipRequest MembershipRequest { get { return new MembershipRequest(_client); } }
         public ApiRequest(string username, string authenticationToken)
         {
             _username = username;
