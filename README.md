@@ -16,6 +16,7 @@ As of the last update, the following objects are represented in the API
 - Deals
 - Emails
 - Groups
+- Memberships
 - Notes
 - People
 - Recordings
@@ -26,5 +27,4 @@ As of the last update, the following objects are represented in the API
 The following objects are awaiting implementation:
 
 - Deletions
-- Memberships
 - Parties
