@@ -55,5 +55,9 @@ namespace HighriseApi
 
         [SerializeAs(Name = "subject_datas")]
         public List<SubjectData> SubjectDatas { get; set; }
+
+        [SerializeAs(Name = "tags")]
+        public List<Tag> Tags { get; set; }
+
     }
 }
